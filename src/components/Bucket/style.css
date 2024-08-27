@@ -1,0 +1,24 @@
+.Bucket {
+  display: flex;
+  justify-content: space-between;
+}
+.Bucket.complete {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.Bucket.low {
+  background-color: green;
+}
+
+.Bucket.med {
+  background-color: yellow;
+}
+
+.Bucket.high {
+  background-color: red;
+}
+
+.Bucket .button-spot {
+  display: flex;
+}
