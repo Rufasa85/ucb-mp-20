@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Bucket from "./components/Bucket";
 import Form from "./components/Form";
 
@@ -30,6 +30,20 @@ function App() {
       complete: true,
     },
   ]);
+  useEffect(() => {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2VAam9lLmpvZSIsImlhdCI6MTcyNDg2NTc2MiwiZXhwIjoxNzI0ODcyOTYyfQ.3EBGcXSCsHhZLWZnkBtlGIC5XkxDaRQuyaYbLImj8OM";
+    fetch("http://localhost:3001/api/users/secret", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const addTask = (taskObj) => {
     taskObj.id = crypto.randomUUID();
